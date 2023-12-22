@@ -1,6 +1,6 @@
-import java.util.*;
+import java.util.Scanner;
 
-public class Min_Stack {
+public class Max_Stack {
 	int stack[];
     int tos,MaxSize;
     static int flag;
@@ -55,11 +55,11 @@ public class Min_Stack {
 		Scanner sc=new Scanner (System.in);
 		System.out.println("Enter the Size Of Stack");		
 		int size=sc.nextInt();
-		Min_Stack stack=new Min_Stack();
-		Min_Stack min_stack=new Min_Stack();
-		min_stack.createStack(size);
+		Max_Stack stack=new Max_Stack();
+		Max_Stack max_stack=new Max_Stack();
+		max_stack.createStack(size);
 		stack.createStack(size);
-		int flag=0;
+		
 		 int choice;
 	        do
 	        {
@@ -67,17 +67,19 @@ public class Min_Stack {
 	            choice=sc.nextInt();
 	            switch(choice)
 	            {
+	            	
 	                case 1:
-	                	if(min_stack.is_empty())
+	                	if(max_stack.is_empty())
 	            			flag=0;
 	                    if(!stack.is_full())
 	                    {
+	                    	
 	                    	System.out.println("Enter the number");
 	            			int num=sc.nextInt();
 	                        if(flag==0)
 	            			{
 	            			stack.push(num);
-	            			min_stack.push(num);
+	            			max_stack.push(num);
 	            			System.out.println("Number pushed in both stack "+num);
 	            			flag=1;
 	            			}
@@ -85,10 +87,10 @@ public class Min_Stack {
 	            			{
 	            				stack.push(num);
 	            				System.out.println("Number pushed in stack "+num);
-	            				if(num<min_stack.peek()) 
+	            				if(num>max_stack.peek()) 
 	            				{
-	            					min_stack.push(num);
-	            					System.out.println("Number pushed in min_stack "+num);
+	            					max_stack.push(num);
+	            					System.out.println("Number pushed in max_stack "+num);
 	            					
 	            				}
 	            				
@@ -101,9 +103,9 @@ public class Min_Stack {
 	                case 2:
 	                    if(!stack.is_empty()) 
 	                    {
-	                    	if(stack.peek()==min_stack.peek())
+	                    	if(stack.peek()==max_stack.peek())
 	                    	{	stack.pop();
-	                    		System.out.println("Number = "+min_stack.pop()+"is popped from both stack");
+	                    		System.out.println("Number = "+max_stack.pop()+"is popped from both stack");
 	                    	}
 	                    	else
 	                    		System.out.println("Number = "+stack.pop()+"is popped from  stack");
@@ -115,8 +117,8 @@ public class Min_Stack {
 	                case 3:
 	                    if(!stack.is_empty())
 	                        System.out.println("Number is = "+stack.peek());
-	                    if(!min_stack.is_empty())
-	                        System.out.println("Number is = "+min_stack.peek());
+	                    if(!max_stack.is_empty())
+	                        System.out.println("Number is = "+max_stack.peek());
 	                    else
 	                        System.out.println("Stack is Empty");
 	                break;
@@ -124,8 +126,8 @@ public class Min_Stack {
 	                    if(!stack.is_empty())
 	                        stack.print_stack();
 	                    System.out.println("-----------------------------------");
-	                    if(!min_stack.is_empty())
-	                    	min_stack.print_stack();
+	                    if(!max_stack.is_empty())
+	                    	max_stack.print_stack();
 	                    else
 	                        System.out.println("Stack is Empty");
 	                break;
@@ -148,7 +150,7 @@ public class Min_Stack {
 		}
 		stack.print_stack();
 		System.out.println("-----------------------------");
-		min_stack.print_stack();
+		max_stack.print_stack();
 		
 
 	}
