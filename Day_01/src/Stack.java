@@ -42,14 +42,10 @@ public class Stack
     }
     void print_stack()
     {
-        while(tos==-1)
-        {
-            System.out.println(stack[tos--]);
-        }
-        /*
-        for (int i=tos;tos>-1;tos--)
+        
+        for (int i=tos;tos>-1;i--)
             System.out.println(stack[i]);
-        */
+        
     }
     public static void main(String[] args)
     {
