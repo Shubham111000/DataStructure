@@ -1,5 +1,4 @@
 INDEX VERSION 1.132+F:\SM  VITA\gitHub\DataStructure\.metadata\.plugins\org.eclipse.jdt.core
 1865797976.index
-801418194.index
 477520534.index
 3066952296.index
