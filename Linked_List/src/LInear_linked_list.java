@@ -91,6 +91,70 @@ public class LInear_linked_list {
 				System.out.println("Key FOund in List");
 		}
 	}
+	void deleteKey(int key)
+	{  if(root==null)
+	            System.out.println("Empty List");       
+	   else//not empty
+	   {   
+	       Node t=root;Node t2=root;
+	       while(t!=null && key!=t.data)
+	       {
+	        t2=t;       
+	        t=t.next;
+	       }
+	       if(t==null)//not found
+	               System.out.println(key+" not found in list");
+	       else//found
+	       {
+	           System.out.println(key+" found in list");
+	           if(t==root)//case1:left most
+	            root=root.next;
+	           else if(t.next==null)//case 2:right most
+	             t2.next=null;
+	           else//case 3:in between
+	             t2.next=t.next;
+	           System.out.println(t.data+" deleted");     
+	       }
+	           
+	    }
+	   }
+	    
+
+	void insertAt(int index,int e)
+	    {  
+	        if(index==0)
+	        {
+	            Node n=new Node(e);
+	            if(root==null)
+	                root=n;
+	            else
+	            {
+	                n.next=root;
+	                root=n;
+	            }
+	        }
+	        else{
+	            Node t=root;
+	            Node t2=root;
+	            while(t!=null && index>0)
+	            {
+	                t2=t;
+	                t=t.next;
+	                index--;
+	            }
+	            if(t==null)
+	                System.out.println("index out of range");
+	            else
+	            {
+	                Node n=new Node(e);
+	                t2.next=n;//1
+	                n.next=t;//2
+	                System.out.println("iserted:");
+	            }
+	                
+	        }
+	    }
+
 	
 
 	public static void main(String[] args)
@@ -100,7 +164,7 @@ public class LInear_linked_list {
         int choice;
         do
         {
-            System.out.println("\n1.insert_left\n2.insert_right\n3.delete_left\n4.delete_right\n5.Search\n6.Print_list");
+            System.out.println("\n1.insert_left\n2.insert_right\n3.delete_left\n4.delete_right\n5.Search\n6.Print_list\n7.Delete on Key\\n8.Insert at\\n0.Exit\\n:");
             choice=Sc.nextInt();
             switch(choice)
             {
@@ -124,7 +188,16 @@ public class LInear_linked_list {
                 break;
                 case 6:
                 	obj.print_list();
-                break;                	
+                break; 
+                case 7:
+                    System.out.println("\nEnter a number to delete:");
+                    obj.deleteKey(Sc.nextInt());
+                    break;
+            case 8:
+                    System.out.println("\nEnter index and data to insert:");
+                    int index=Sc.nextInt();
+                    obj.insertAt(index,Sc.nextInt());
+                    break;
                 default:
                     System.out.println("Enter Valid Choice");
                 break;
