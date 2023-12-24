@@ -1,7 +1,12 @@
 import java.util.*;
 public class LInear_linked_list {
 
-	Node root=null;	
+	Node root;
+	void createList()
+    {
+        root=null;//root is never created but assigned as per need
+        //the 1st node is called root
+    }
 	void insert_left(int data) 
 	{
 		Node n=new Node(data);
@@ -10,6 +15,12 @@ public class LInear_linked_list {
 			root=n;
 			System.out.println(data+" Inserted");
 		}
+		else
+        {
+            n.next=root;//1
+            root=n;//2
+        }
+        System.out.println(data+" Inserted");
 	}
 	void delete_left() 
 	{
@@ -155,16 +166,15 @@ public class LInear_linked_list {
 	        }
 	    }
 
-	
-
 	public static void main(String[] args)
     {
         Scanner Sc=new Scanner(System.in);
         LInear_linked_list obj=new LInear_linked_list();
+        obj.createList();
         int choice;
         do
         {
-            System.out.println("\n1.insert_left\n2.insert_right\n3.delete_left\n4.delete_right\n5.Search\n6.Print_list\n7.Delete on Key\\n8.Insert at\\n0.Exit\\n:");
+            System.out.println("\n1.insert_left\n2.insert_right\n3.delete_left\n4.delete_right\n5.Search\n6.Print_list\n7.Delete on Key\n8.Insert at\n0.Exit\\n:");
             choice=Sc.nextInt();
             switch(choice)
             {
