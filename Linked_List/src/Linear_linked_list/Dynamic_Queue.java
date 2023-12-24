@@ -1,3 +1,5 @@
+package Linear_linked_list;
+
 import java.util.Scanner;
 
 public class Dynamic_Queue {
