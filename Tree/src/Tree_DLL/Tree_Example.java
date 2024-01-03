@@ -60,7 +60,7 @@ public class Tree_Example
     int getHeight(DNode r)
     {
         if(r==null)
-            return 0;
+            return -1;
         else
         {
             int right=getHeight(r.right);
@@ -100,7 +100,8 @@ public class Tree_Example
         /*DNode n6=new DNode(90);
         obj.insert(obj.root, n6);*/
         obj.inorder(obj.root);
-        System.out.println("Height is:"+(obj.getHeight(obj.root)-1));
+        System.out.println();
+        System.out.println("Height is:"+(obj.getHeight(obj.root)));
         System.out.println("is it balanced:"+obj.isBalanced(obj.root));
         System.out.println("find 200:"+obj.search(obj.root,200));
     }

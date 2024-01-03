@@ -1,6 +1,6 @@
 package Doubli_Linked_List;
 
-public class Diubli_Linked_List {
+public class Doubli_Linked_List {
 	DNode root;
 	void createlist()
 	{
